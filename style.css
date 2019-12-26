@@ -1,0 +1,32 @@
+img {
+  width: 75%;
+  padding-bottom: : 3%;
+  float: left;
+}
+
+aside{
+  float: left;
+  margin-left: 10%;
+  width: 10%;
+  clear:right;
+  margin-bottom: 10%;
+
+
+}
+
+aside button{
+  width: 100%;
+}
+
+
+
+
+section{
+float:left;
+width: 100%;
+margin-bottom: 3%;
+}
+
+h4 {
+  margin: 3px;
+}

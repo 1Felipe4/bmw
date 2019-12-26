@@ -1,0 +1,60 @@
+
+<html>
+  <head>
+    <title>BMW</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <section>
+      <img id="dPic"/>
+      <aside id= "design">
+        <h4>Design Options</h4>
+        <button id="d1" onclick="x.changeDesign(x.designOptions()[0])"> </button>
+        <button id="d2" onclick="x.changeDesign(x.designOptions()[1])"> </button>
+        <a href = #cPic><button>Next</button></a>
+      </aside>
+    </section>
+
+
+
+    <section>
+      <img id="cPic"/>
+      <aside id= "color">
+        <h4>Color Options</h4>
+        <a href  = #cPic>
+        <button id="c1" onclick="x.changeColor(x.colorOptions()[0])"></button>
+        <button id="c2" onclick="x.changeColor(x.colorOptions()[1])"> </button>
+        <button id= "c3" onclick="x.changeColor(x.colorOptions()[2])"> </button></a>
+        <a href = #dPic><button>Previous</button></a>
+      </aside>
+
+
+
+      <aside id= "rim">
+        <h4>Rim Options</h4>
+        <a href  = #cPic><button id="r1" onclick="x.changeRim(x.rimOptions()[0])"> </button>
+        <button id="r2" onclick="x.changeRim(x.rimOptions()[1])"> </button>
+        <button id= "r3" onclick="x.changeRim(x.rimOptions()[2])"> </button></a>
+        <a href = #cPic><button>Previous</button></a>
+      </aside>
+    </section>
+
+
+
+
+    <section>
+      <img id="iPic"/>
+      <aside id= "interior">
+        <h4>Interior Options</h4>
+        <a href  = #iPic><button id="in1" onclick="x.changeInterior(x.interiorOptions()[0])"> </button>
+        <button id="in2" onclick="x.changeInterior(x.interiorOptions()[1])"> </button>
+        <button id= "in3" onclick="x.changeInterior(x.interiorOptions()[2])"> </button></a>
+
+      </aside>
+    </section>
+
+<script src="script.js" onload ="rebuild()"> </script>
+
+      </body>
+</html>
