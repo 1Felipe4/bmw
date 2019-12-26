@@ -6,20 +6,19 @@ function item(name, display, price){
 
 
 function car(type, design, color, rimType, interior){
+
   this.type = type;
   this.design = design;
   this.color = color;
   this.rimType = rimType;
   this.interior = interior;
-    this.defaultType = function(){
-      if(type=== "x7"){
-      x =new car("x7", "luxury", "white", "21-Y-ferric", "black")
-      x.cookie();
-      }
-    }
+
     this.designOptions = function(){
       if(this.type=== "x7"){
         return ["luxury", "mSport"];
+      }
+      else if(this.type==="x1"){
+        return["xLine", "mSport"]
       }
     }
 
@@ -27,12 +26,21 @@ function car(type, design, color, rimType, interior){
       if(this.type ==="x7"){
         return["white", "blue", "amtrin"];
         }
+      else if(this.type ==="x1"){
+        if(this.design === "xLine"){
+          return ["white", "blue", "orange"];
+        }else{
+          return ["white", "blue", "grey"];
+        }
+      }
       }
     this.interiorOptions= function(){
         if(this.type ==="x7"){
-
           return["white", "black", "coffee"];
           }
+          else if(this.type ==="x1"){
+            return["white", "black", "mocha"];
+            }
         }
 
     this.rimOptions= function(){
@@ -44,21 +52,43 @@ function car(type, design, color, rimType, interior){
             return["21-dbl", "22-V", "22-Y"]
           }
         }
+        else if(this.type ==="x1"){
+          if(this.design ==="xLine"){
+            return["18-Y", "19-Y", "18-dbl"]
+          }
+          else{
+            return["18-M", "18-M", "19-M"]
+          }
+        }
 
     }
     this.changeDesign = function(d){
-      var dO = this.designOptions();
-          this.design = d;
-          this.changeRim(this.rimType);
+          var dO = this.designOptions();
+          let j = 0;
+          for(var i = 0; i<dO.length;i++){
+          if(d===dO[i]){this.design = d;}
+          else{j++};
+        }
+        if(j==2){
+          this.design = dO[0];
+        }
+        this.changeColor(this.color);
+        this.changeRim(this.rimType);
       this.designImg();
     }
     this.changeColor = function(c){
       var cO = this.colorOptions();
+      let j = 0;
       for(var i = 0; i < cO.length;i++){
         if(c===cO[i]){
           this.color = c;
 
+        }  else{
+          j++;
         }
+      }
+      if(j === 3){
+        this.color = cO[0]
       }
       this.colorImg("cPic");
     }
@@ -105,16 +135,18 @@ function car(type, design, color, rimType, interior){
     this.interiorImg = function(){
     document.getElementById('iPic').src=("images/" + this.type + "-interior-" + this.interior + ".png");
     return this.type + "-interior-" + this.interior+ ".png"};
+
     this.cookie = function(){
       var d = new Date();
       d.setTime(d.getTime()+(10*24*60*60*1000));
       var expires = "expires=" + d.toUTCString();
+
       document.cookie = ("type=" + this.type + ";"  +expires + ";");
+
       document.cookie = ("design=" + this.design + ";"  +expires + ";");
       document.cookie = ("color=" + this.color + ";"  +expires + ";");
       document.cookie = ("rimType=" + this.rimType + ";"  +expires + ";");
       document.cookie = ("interior=" + this.interior + ";"  +expires + ";");
-      document.cookie = ("type=x7;" + expires + ";");
       document.cookie = ("expires=" + expires + ";" +expires + ";");
       document.cookie = ("path=/;");
       return"type=" + this.type + ";design=" +this.design+ ";color=" + this.color +
@@ -130,8 +162,12 @@ var x;
 function carD(type){
 if(type=== "x7"){
 x =new car("x7", "luxury", "white", "21-Y-ferric", "black")
-x.cookie();
   }
+else if (type ==="x1") {
+  x = new car("x1", "xLine", "white", "18-Y", "black")
+}
+
+x.cookie();
 }
 
 function rebuild(){
