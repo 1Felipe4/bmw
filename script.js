@@ -17,7 +17,7 @@ function car(type, design, color, rimType, interior){
       if(this.type=== "x7"){
         return ["luxury", "mSport"];
       }
-      else if(this.type==="x1"){
+      else{
         return["xLine", "mSport"]
       }
     }
@@ -33,6 +33,9 @@ function car(type, design, color, rimType, interior){
           return ["white", "blue", "grey"];
         }
       }
+      else if(this.type === "x4"){
+        return["white", "black", "red"]
+      }
       }
     this.interiorOptions= function(){
         if(this.type ==="x7"){
@@ -40,6 +43,9 @@ function car(type, design, color, rimType, interior){
           }
           else if(this.type ==="x1"){
             return["white", "black", "mocha"];
+            }
+            else if(this.type === "x4"){
+              return["black","mocha","red"]
             }
         }
 
@@ -58,6 +64,14 @@ function car(type, design, color, rimType, interior){
           }
           else{
             return["18-M", "18-M", "19-M"]
+          }
+        }
+        else if(this.type ==="x4"){
+          if(this.design ==="xLine"){
+            return["19-Y-ferric","19-Y-ferric","20-Y-bicolor"]
+          }
+          else{
+            return["19-M-bicolor","19-M-bicolor" ,"20-M-bicolor"];
           }
         }
 
@@ -165,6 +179,9 @@ x =new car("x7", "luxury", "white", "21-Y-ferric", "black")
   }
 else if (type ==="x1") {
   x = new car("x1", "xLine", "white", "18-Y", "black")
+}
+else{
+  x = new car("x4", "xLine","white","18-M-bicolor", "black")
 }
 
 x.cookie();
